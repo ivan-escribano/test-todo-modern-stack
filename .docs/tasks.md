@@ -84,24 +84,24 @@ El objetivo es entender qué se hace y por qué, no solo ejecutar.
 
 ### 3.1 — Comprender Fastify
 
-- [ ] Investigar qué es Fastify y en qué se diferencia de Express
-- [ ] Entender el sistema de plugins de Fastify
-- [ ] Entender cómo Fastify maneja rutas, hooks y validación
-- [ ] Crear un servidor mínimo con una ruta de prueba
+- [x] Investigar qué es Fastify y en qué se diferencia de Express
+- [x] Entender el sistema de plugins de Fastify
+- [x] Entender cómo Fastify maneja rutas, hooks y validación
+- [x] Crear un servidor mínimo con una ruta de prueba
 
 ### 3.2 — Comprender Drizzle ORM
 
-- [ ] Investigar qué es Drizzle y cómo se diferencia de Prisma
-- [ ] Entender el concepto de schema-first en Drizzle
-- [ ] Entender cómo funcionan las migraciones en Drizzle
-- [ ] Entender cómo se conecta Drizzle con PostgreSQL
+- [x] Investigar qué es Drizzle y cómo se diferencia de Prisma
+- [x] Entender el concepto de schema-first en Drizzle
+- [x] Entender cómo funcionan las migraciones en Drizzle
+- [x] Entender cómo se conecta Drizzle con PostgreSQL
 
 ### 3.3 — Comprender la conexión con PostgreSQL
 
-- [ ] Verificar que PostgreSQL está corriendo localmente
-- [ ] Familiarizarse con pgAdmin para inspeccionar la base de datos
-- [ ] Crear una base de datos de prueba para el proyecto
-- [ ] Probar una conexión básica desde Node.js a PostgreSQL
+- [x] Verificar que PostgreSQL está corriendo localmente
+- [x] Familiarizarse con pgAdmin para inspeccionar la base de datos
+- [x] Crear una base de datos de prueba para el proyecto
+- [x] Probar una conexión básica desde Node.js a PostgreSQL
 
 ---
 
@@ -109,43 +109,43 @@ El objetivo es entender qué se hace y por qué, no solo ejecutar.
 
 ### 4.1 — Configurar Fastify en el proyecto
 
-- [ ] Instalar Fastify y sus dependencias en `apps/api`
-- [ ] Crear el archivo principal del servidor
-- [ ] Configurar el arranque del servidor con variables de entorno (puerto, host)
-- [ ] Verificar que el servidor arranca correctamente
+- [x] Instalar Fastify y sus dependencias en `apps/api`
+- [x] Crear el archivo principal del servidor
+- [x] Configurar el arranque del servidor con variables de entorno (puerto, host)
+- [x] Verificar que el servidor arranca correctamente
 
 ### 4.2 — Configurar Drizzle y la base de datos
 
-- [ ] Instalar Drizzle ORM y el driver de PostgreSQL
-- [ ] Crear el archivo de configuración de Drizzle (`drizzle.config.ts`)
-- [ ] Configurar la conexión a la base de datos
-- [ ] Verificar que la conexión funciona correctamente
+- [x] Instalar Drizzle ORM y el driver de PostgreSQL
+- [x] Crear el archivo de configuración de Drizzle (`drizzle.config.ts`)
+- [x] Configurar la conexión a la base de datos
+- [x] Verificar que la conexión funciona correctamente
 
 ### 4.3 — Definir el esquema de datos (ToDo)
 
-- [ ] Definir la tabla `todos` con Drizzle (campos: id, título, descripción, completado, fechas)
-- [ ] Investigar los tipos de datos adecuados en Drizzle para cada campo
-- [ ] Generar la primera migración
-- [ ] Aplicar la migración y verificar la tabla en pgAdmin
+- [x] Definir la tabla `todos` con Drizzle (campos: id, título, descripción, completado, fechas)
+- [x] Investigar los tipos de datos adecuados en Drizzle para cada campo
+- [x] Generar la primera migración
+- [x] Aplicar la migración y verificar la tabla en pgAdmin
 
 ### 4.4 — Implementar la capa de rutas (routes)
 
-- [ ] Crear la estructura de rutas para todos (`/api/todos`)
-- [ ] Registrar las rutas como plugin de Fastify
-- [ ] Definir los endpoints: `GET`, `POST`, `PUT`, `DELETE`
-- [ ] Verificar que las rutas responden (aunque sin lógica aún)
+- [x] Crear la estructura de rutas para todos (`/api/todos`)
+- [x] Registrar las rutas como plugin de Fastify
+- [x] Definir los endpoints: `GET`, `POST`, `PUT`, `DELETE`
+- [x] Verificar que las rutas responden (aunque sin lógica aún)
 
 ### 4.5 — Implementar la capa de servicios (services)
 
-- [ ] Crear el servicio de todos con las operaciones CRUD
-- [ ] Conectar el servicio con Drizzle para las consultas a la base de datos
-- [ ] Entender la separación entre rutas y servicios (y por qué importa)
+- [x] Crear el servicio de todos con las operaciones CRUD
+- [x] Conectar el servicio con Drizzle para las consultas a la base de datos
+- [x] Entender la separación entre rutas y servicios (y por qué importa)
 
 ### 4.6 — Conectar rutas con servicios
 
-- [ ] Integrar los servicios dentro de los handlers de las rutas
-- [ ] Probar cada endpoint manualmente (con herramienta tipo Thunder Client, Postman o curl)
-- [ ] Verificar que el CRUD completo funciona contra la base de datos real
+- [x] Integrar los servicios dentro de los handlers de las rutas
+- [x] Probar cada endpoint manualmente (con herramienta tipo Thunder Client, Postman o curl)
+- [x] Verificar que el CRUD completo funciona contra la base de datos real
 
 ### 4.7 — Validación de datos
 
