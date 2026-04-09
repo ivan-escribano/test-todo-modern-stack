@@ -1,15 +1,15 @@
 import fastify from "fastify";
 
+import { registerErrorHandler } from "./app/error-handler";
 import { todosRoutes } from "./modules/todos/todos.routes";
 
 const app = fastify({
   logger: true,
 });
 
-app.get("/health", async (request, reply) => {
-  return { status: "ok" };
-});
+app.get("/health", async (request, reply) => ({ status: "ok" }));
 
+registerErrorHandler(app);
 app.register(todosRoutes, { prefix: "/api/todos" });
 
 const start = async () => {

@@ -1,5 +1,10 @@
 import { FastifyPluginAsync } from "fastify";
 
+import {
+  createTodoSchema,
+  deleteTodoSchema,
+  updateTodoSchema,
+} from "./todos.schemas";
 import { todosService } from "./todos.service";
 
 export const todosRoutes: FastifyPluginAsync = async (app) => {
@@ -9,34 +14,46 @@ export const todosRoutes: FastifyPluginAsync = async (app) => {
     return { todos };
   });
 
-  app.post("/", async (request, reply) => {
-    const { title, description } = request.body as CreateTodoInput;
+  app.post<{ Body: CreateTodoInput }>(
+    "/",
+    { schema: createTodoSchema },
+    async (request, reply) => {
+      const { title, description } = request.body;
 
-    const newTodo = await todosService.create({ title, description });
+      const newTodo = await todosService.create({ title, description });
 
-    return { todo: newTodo };
-  });
+      return { todo: newTodo };
+    },
+  );
 
-  app.put("/:id", async (request, reply) => {
-    const { id } = request.params as { id: string };
+  app.put<{ Params: UpdateTodoInput; Body: UpdateTodoInput }>(
+    "/:id",
+    { schema: updateTodoSchema },
+    async (request, reply) => {
+      const { id } = request.params as { id: string };
 
-    const { title, description, completed } = request.body as UpdateTodoInput;
+      const { title, description, completed } = request.body;
 
-    const updatedTodo = await todosService.update({
-      id,
-      title,
-      description,
-      completed,
-    });
+      const updatedTodo = await todosService.update({
+        id,
+        title,
+        description,
+        completed,
+      });
 
-    return { todo: updatedTodo };
-  });
+      return { todo: updatedTodo };
+    },
+  );
 
-  app.delete("/:id", async (request, reply) => {
-    const { id } = request.params as { id: string };
+  app.delete<{ Params: { id: string } }>(
+    "/:id",
+    { schema: deleteTodoSchema },
+    async (request, reply) => {
+      const { id } = request.params;
 
-    const deletedTodo = await todosService.remove(id);
+      const deletedTodo = await todosService.remove(id);
 
-    return { todo: deletedTodo };
-  });
+      return { todo: deletedTodo };
+    },
+  );
 };

@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 
 import { db } from "../../db";
 import { todos } from "../../db/schema";
+import { NotFoundError } from "../../lib/errors";
 
 const getAll = async () => {
   return await db.select().from(todos);
@@ -22,6 +23,8 @@ const update = async (data: UpdateTodoInput) => {
     .where(eq(todos.id, id))
     .returning();
 
+  if (!updateTodo) throw new NotFoundError("Todo not found");
+
   return updateTodo;
 };
 
@@ -30,6 +33,8 @@ const remove = async (id: string) => {
     .delete(todos)
     .where(eq(todos.id, id))
     .returning();
+
+  if (!deletedTodo) throw new NotFoundError("Todo not found");
 
   return deletedTodo;
 };

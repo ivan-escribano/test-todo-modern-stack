@@ -149,16 +149,16 @@ El objetivo es entender qué se hace y por qué, no solo ejecutar.
 
 ### 4.7 — Validación de datos
 
-- [ ] Investigar cómo Fastify maneja la validación de schemas (JSON Schema)
-- [ ] Definir los schemas de validación para crear y actualizar tareas
-- [ ] Aplicar la validación en las rutas correspondientes
-- [ ] Verificar que los errores de validación se devuelven correctamente
+- [x] Investigar cómo Fastify maneja la validación de schemas (JSON Schema)
+- [x] Definir los schemas de validación para crear y actualizar tareas
+- [x] Aplicar la validación en las rutas correspondientes
+- [x] Verificar que los errores de validación se devuelven correctamente
 
 ### 4.8 — Manejo de errores
 
-- [ ] Definir una estrategia básica de manejo de errores
-- [ ] Implementar respuestas consistentes para errores comunes (404, 400, 500)
-- [ ] Investigar el error handler de Fastify y cómo personalizarlo
+- [x] Definir una estrategia básica de manejo de errores
+- [x] Implementar respuestas consistentes para errores comunes (404, 400, 500)
+- [x] Investigar el error handler de Fastify y cómo personalizarlo
 
 ---
 
