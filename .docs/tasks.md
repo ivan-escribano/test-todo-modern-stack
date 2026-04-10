@@ -166,16 +166,16 @@ El objetivo es entender qué se hace y por qué, no solo ejecutar.
 
 ### 5.1 — Configurar Next.js y dependencias
 
-- [ ] Verificar la configuración de Next.js en `apps/web`
-- [ ] Instalar Tailwind CSS v4 y configurarlo
-- [ ] Instalar y configurar shadcn/ui
-- [ ] Crear una página de prueba para verificar que todo funciona
+- [x] Verificar la configuración de Next.js en `apps/web`
+- [x] Instalar Tailwind CSS v4 y configurarlo
+- [x] Instalar y configurar shadcn/ui
+- [x] Crear una página de prueba para verificar que todo funciona
 
 ### 5.2 — Definir la estructura del frontend
 
-- [ ] Definir la organización de carpetas (componentes, servicios, tipos, etc.)
-- [ ] Crear los tipos compartidos para el modelo de ToDo
-- [ ] Establecer la estructura base de páginas/rutas
+- [x] Definir la organización de carpetas (componentes, servicios, tipos, etc.)
+- [x] Crear los tipos compartidos para el modelo de ToDo
+- [x] Establecer la estructura base de páginas/rutas
 
 ### 5.3 — Implementar la interfaz de lista de tareas
 

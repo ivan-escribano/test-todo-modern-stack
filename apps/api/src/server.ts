@@ -1,3 +1,4 @@
+import cors from "@fastify/cors";
 import fastify from "fastify";
 
 import { registerErrorHandler } from "./app/error-handler";
@@ -10,6 +11,12 @@ const app = fastify({
 app.get("/health", async (request, reply) => ({ status: "ok" }));
 
 registerErrorHandler(app);
+
+app.register(cors, {
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+});
+
 app.register(todosRoutes, { prefix: "/api/todos" });
 
 const start = async () => {

@@ -172,18 +172,47 @@ Este enfoque facilita:
 
 En el frontend se recomienda una estructura ligera y pragmática, sin sobrearquitectura inicial.
 
-Ejemplo orientativo:
+Estructura definida para este proyecto:
 
 ```text
 apps/web/src/
-  app/
-  components/
-  services/
-  lib/
-  hooks/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx          ← lista de todos (página principal)
+│   └── globals.css
+├── components/
+│   ├── ui/               ← componentes de shadcn (auto-generados)
+│   └── custom/           ← componentes propios del proyecto
+│       ├── todo-list.tsx
+│       ├── todo-item.tsx
+│       └── todo-form.tsx
+├── services/
+│   └── todos.ts          ← funciones fetch a la API
+└── types/
+    └── todo.ts           ← tipos compartidos del modelo
 ```
 
-La prioridad es mantener claridad, separación básica de responsabilidades y facilidad de evolución a medida que el proyecto crezca.
+La prioridad es mantener claridad y separación básica de responsabilidades. No se añaden carpetas como `hooks/`, `lib/` o `utils/` hasta que sean necesarias.
+
+### Responsabilidad de cada archivo
+
+**`app/page.tsx`** — página principal. Orquesta todo: carga los todos y renderiza la lista y el formulario.
+
+**`app/layout.tsx`** — shell HTML global. Solo metadatos, fuentes y providers si los hay.
+
+**`app/globals.css`** — estilos globales y variables de shadcn. No editar manualmente.
+
+**`components/ui/`** — solo componentes de shadcn. Nunca editar directamente. Se instalan con `pnpm dlx shadcn@latest add <componente>`.
+
+**`components/custom/todo-list.tsx`** — recibe el array de todos como prop y los renderiza uno a uno usando `todo-item`.
+
+**`components/custom/todo-item.tsx`** — un único todo. Muestra título, descripción, checkbox para completar y botón de borrar.
+
+**`components/custom/todo-form.tsx`** — formulario para crear una tarea nueva. Campos: título (obligatorio) y descripción (opcional).
+
+**`services/todos.ts`** — todas las llamadas HTTP a la API. Una función por operación: `getTodos`, `createTodo`, `updateTodo`, `deleteTodo`.
+
+**`types/todo.ts`** — el tipo `Todo` compartido por todos los archivos del frontend. Refleja lo que devuelve la API.
 
 ---
 
